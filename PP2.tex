@@ -1,0 +1,174 @@
+% !TEX TS-program = XeLaTeX
+%!TEX encoding = UTF-8 Unicode
+%==================================================
+%      PREAMBOLO e DICHIARAZIONI INIZIALI
+%==================================================
+\documentclass[10pt,oneside,a4paper]{article}
+
+\usepackage[utf8]{inputenc} 
+\usepackage[italian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{siunitx} %Inserisce automaticamente i dati con le unità  di misura correttamente formattate del SI (utilizzo: \SI{0.82}{m^2}, in generale \SI{misura con il punto decimale}{unità  di misura})
+\sisetup{output-decimal-marker = {.}, separate-uncertainty = true, input-uncertainty-signs = \pm, detect-weight=true, detect-family=true} %per usare SI con il punto decimale
+\usepackage{listings} %Per citare codice informatico formattandolo correttamente
+\usepackage{amsmath,amsthm,verbatim,amssymb,amsfonts,amscd,graphicx,mathtools}
+\usepackage[makeroom]{cancel}
+\newcommand{\abs}[1]{\left\lvert\,#1\,\right\rvert}
+\usepackage{geometry}
+\usepackage{epigraph}
+\usepackage{booktabs}	%tabelle migliorate
+\usepackage{tablefootnote}	%note a piè di pagina in tabella
+\usepackage{threeparttable} %tabella con note a piè di tabella
+\usepackage{caption}	%descrizione per figure
+\usepackage{dblfnote}
+\captionsetup{tableposition=top,figureposition=bottom,font=small} %setup descrizione
+\usepackage{float}
+\usepackage{esvect} %vettori
+\usepackage{longtable} %tabelle lunghe
+\usepackage[dvipsnames]{xcolor}
+\definecolor{sepia}{HTML}{80002A}
+\usepackage[colorlinks=true, citecolor=black, linkcolor=sepia, urlcolor=black]{hyperref}
+\usepackage{mathrsfs}
+\usepackage{circuitikz}
+\tikzset{
+  font={\fontsize{7pt}{12}\selectfont}}
+\ctikzset{bipoles/resistor/height=0.2}
+\ctikzset{bipoles/resistor/width=0.4}
+\ctikzset{bipoles/diode/height=0.3}
+\ctikzset{bipoles/diode/width=0.3}
+\ctikzset{tripoles/american nand port/height=0.7}
+\ctikzset{tripoles/american nand port/width=0.8}
+\usepackage{enumitem} %Liste senza spazi verticali
+\setlist{noitemsep}
+\usepackage{amsmath}
+\usepackage{hyperref}
+%\usepackage{pst-optexp} %Diagrammi ottici
+\usepackage{physics} %Ambienti utili
+
+
+\interfootnotelinepenalty=10000
+
+
+\usepackage{multicol}
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+%\newcommand{\var}{\operatorname{var}}
+%\newcommand{\cov}{\operatorname{cov}}
+
+
+\usepackage{listings} %Per inserire codice
+\lstdefinestyle{CStyle}{
+    backgroundcolor=\color{backgroundColour},   
+    commentstyle=\color{mGreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{mGray},
+    stringstyle=\color{mPurple},
+    basicstyle=\footnotesize\ttfamily,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=C
+}
+
+\definecolor{color1}{RGB}{90,0,0} % Color of the article title and sections
+\definecolor{color2}{RGB}{0,20,50} % Color of the boxes behind the abstract and headings
+\definecolor{mGreen}{rgb}{0,0.6,0}
+\definecolor{mGray}{rgb}{0.5,0.5,0.5}
+\definecolor{mPurple}{rgb}{0.58,0,0.82}
+\definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
+
+
+%==================================================
+%                  PRIMA PAGINA
+%==================================================
+
+\title{\textsc{\textbf{Esperienza 2}: Interferometro di Michelson}}
+\author{\small{G. Galbato Muscio} \and \small{F. Ghimenti} \and \small{L. Gravina} \and \small{L. Graziotto}}
+\date{11 Aprile 2019}
+
+\begin{document}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.5, trim={2.8cm 8.9cm 0 9cm}, clip]{logo.png}
+	\end{figure}
+	\maketitle
+	\begin{center} 
+		\fbox{{\fontsize{12pt}{8mm}\textsc{Gruppo D1-1}}} \\
+	\end{center}
+\hrule
+\vfill
+\renewcommand{\abstractname}{Abstract}
+\begin{abstract}
+Si osservano le frange di interferenza di un laser HeNe\footnote{\url{https://www.dropbox.com/s/5aqzs2uykfi8lms/8-Coherence_function_He_Ne.pdf?dl=0}} mediante un interferometro di Michelson. Dalla misura della visibilità, si stima il tempo di coerenza del laser.
+\end{abstract}
+\vfill
+\tableofcontents %Indice
+\newpage
+
+
+\pagebreak
+
+
+\begin{multicols}{2}
+%==================================================
+%             APPARATO STRUMENTALE
+%==================================================
+\section{Apparato strumentale}
+
+Si utilizza un laser He-Ne di lunghezza d'onda $\lambda = \SI{632.8}{nm}$, montato su tavolo ottico. La configurazione utilizzata 
+è illustrata in Figura~\ref{fig:diagram}.
+
+In serie al laser è posta una lamina di ritardo $\lambda / 4$ montata su uno stadio di rotazione goniometrica, che ha lo scopo di produrre luce polarizzata circolarmente (o ellitticamente, come si vedrà nella sezione~\ref{sec:polarizzazione}). Inoltre è presente anche un attenuatore di fascio, per ridurre l'intensità della luce emessa, e un'iride.
+
+Al fine di misurare l'intensità del fascio luminoso si utilizza un fotodiodo, che produce un segnale di tensione direttamente proporzionale (ammesso che si lavori nella condizione di linearità, ovvero non superando un voltaggio di circa \SI{10}{V}) all'intensità stessa. La differenza di potenziale ai capi del fotodiodo è misurata con il multimetro \texttt{METEX M-4650}, e le incertezze che saranno associate alla misura sono quelle indicate dal manuale di utilizzo. Il segnale di fondo del fotodiodo risulta essere 
+\[
+I_b = \SI{7.6 \pm 0.4}{mV},
+\]
+ottenuto mediante una misura con il laser oscurato. Ai valori ottenuti sperimentalmente sarà dunque necessario sottrarre il segnale di fondo. Nel seguito, le misure di intensità verranno espresse direttamente come differenza di potenziale, lasciando sottinteso che esista una costante di proporzionalità non nota tra le due\footnote{In particolare, sarà quindi sensato rapportare sempre l'intensità in uscita con quella del fascio incidente.}.
+
+I filtri polarizzatori lineari adoperati sono dotati di una ghiera goniometrica di sensibilità \SI{2}{\degree} che permette di misurare l'angolo di rotazione. L'incertezza associata, posto di poter interpolare a mezza tacca, sarà dunque di \SI{1}{\degree}.
+
+
+
+
+\end{multicols}
+
+\section{Appendice}
+
+%ESEMPIO DI FIGURA
+%\begin{Figure}
+%	\begin{center}
+%	\includegraphics[width=\linewidth]{comune.png}
+%	\captionof{figure}{Istantanea dell'oscilloscopio per l'amplificatore differenziale, misura di $A_c$}
+%	\label{fig:Ac_differenziale}
+%	\end{center}
+%\end{Figure}
+
+
+%ESEMPIO DI TABELLA
+%\begin{center}
+%\captionof{table}{Misure per la stima di $A_c$}
+%\label{tab:Ac_differenziale}
+%\begin{tabular}{c|c|c|c}
+%$f$ [\SI{}{Hz}] & $V_i$ [\SI{}{V}] & $v_o$ [\SI{}{mV}] & $A_c = v_o / V_i$ \\
+%\hline
+%      149.5 &        3.90 &         11.3 & 2.90e-03 \\
+%      222.0 &        3.90 &         11.5 & 2.95e-03 \\
+%      281.0 &        3.90 &         11.8 & 3.03e-03 \\
+%      359.0 &        3.90 &         11.8 & 3.03e-03 \\
+%      461.0 &        3.90 &         12.2 & 3.13e-03 \\
+%\hline
+%\end{tabular}
+%\end{center}
+
+
+\end{document}
