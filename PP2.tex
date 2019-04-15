@@ -108,7 +108,7 @@
 \vfill
 \renewcommand{\abstractname}{Abstract}
 \begin{abstract}
-Si osservano le frange di interferenza di un laser HeNe\footnote{\url{https://www.dropbox.com/s/5aqzs2uykfi8lms/8-Coherence_function_He_Ne.pdf?dl=0}} mediante un interferometro di Michelson. Dalla misura della visibilità, si stima il tempo di coerenza del laser.
+Si studia la visibilità delle frange di interferenza di un laser HeNe\footnote{\url{https://www.dropbox.com/s/5aqzs2uykfi8lms/8-Coherence_function_He_Ne.pdf?dl=0}} mediante un interferometro di Michelson e si misura il tempo di correlazione $\tau_\mathrm{c}$ del laser.
 \end{abstract}
 \vfill
 \tableofcontents %Indice
@@ -124,20 +124,29 @@ Si osservano le frange di interferenza di un laser HeNe\footnote{\url{https://ww
 %==================================================
 \section{Apparato strumentale}
 
-Si utilizza un laser He-Ne di lunghezza d'onda $\lambda = \SI{632.8}{nm}$, montato su tavolo ottico. La configurazione utilizzata 
-è illustrata in Figura~\ref{fig:diagram}.
+Si utilizza un laser He-Ne di lunghezza d'onda $\lambda = \SI{632.8}{nm}$, montato su tavolo ottico. 
 
-In serie al laser è posta una lamina di ritardo $\lambda / 4$ montata su uno stadio di rotazione goniometrica, che ha lo scopo di produrre luce polarizzata circolarmente (o ellitticamente, come si vedrà nella sezione~\ref{sec:polarizzazione}). Inoltre è presente anche un attenuatore di fascio, per ridurre l'intensità della luce emessa, e un'iride.
+In serie al laser è posta un'iride, con lo scopo di evitare fasci entranti nel laser e perturbarne il comportamento. Uno specchio riflette la luce uscente dell'iride in un beam splitter, i due fasci ortogonali uscenti vengono fatti riflettere su due specchi e dunque ricombinati all'interno del beam splitter, una lente divergente allarga uno dei due fasci ricombinati prima di essere misurato da un fotodiodo.
 
-Al fine di misurare l'intensità del fascio luminoso si utilizza un fotodiodo, che produce un segnale di tensione direttamente proporzionale (ammesso che si lavori nella condizione di linearità, ovvero non superando un voltaggio di circa \SI{10}{V}) all'intensità stessa. La differenza di potenziale ai capi del fotodiodo è misurata con il multimetro \texttt{METEX M-4650}, e le incertezze che saranno associate alla misura sono quelle indicate dal manuale di utilizzo. Il segnale di fondo del fotodiodo risulta essere 
-\[
-I_b = \SI{7.6 \pm 0.4}{mV},
-\]
-ottenuto mediante una misura con il laser oscurato. Ai valori ottenuti sperimentalmente sarà dunque necessario sottrarre il segnale di fondo. Nel seguito, le misure di intensità verranno espresse direttamente come differenza di potenziale, lasciando sottinteso che esista una costante di proporzionalità non nota tra le due\footnote{In particolare, sarà quindi sensato rapportare sempre l'intensità in uscita con quella del fascio incidente.}.
+Uno dei due specchi costituenti l'interferometro viene installato su una base fissa e appoggiato su un cristallo piezoelettrico, quest'ultimo è fatto espandere e contrarre attraverso un'onda triangolare di frequenza $f_\mathrm{rampa} = \SI{1.016}{\hertz}$ e ampiezza $A_\mathrm{rampa} = \SI{20.8}{\volt}$; l'altro viene fatto traslare su un piano forato con distanza trai fori pari a $d = \SI{2.5 \pm 0.1}{cm}$. 
 
-I filtri polarizzatori lineari adoperati sono dotati di una ghiera goniometrica di sensibilità \SI{2}{\degree} che permette di misurare l'angolo di rotazione. L'incertezza associata, posto di poter interpolare a mezza tacca, sarà dunque di \SI{1}{\degree}.
+La configurazione utilizzata è illustrata in Figura~\ref{fig:diagram}.
 
+Il segnale in uscita dal fotodiodo è misurato con un oscilloscopio, quest'ultimo viene sincronizzato sulla frequenza del segnale uscente dal generatore.
 
+\section{Visibilità delle frange}
+\subsection{Presa dati}
+Si posiziona lo specchio mobile a distanza $d^{(0)}_\mathrm{mobile} = \SI{7.3 \pm 0.1}{cm}$, e quello fisso a distanza $d^{(0)}_\mathrm{fisso} = \SI{6.4 \pm 0.1}{cm}$, si muovono gli specchi con l'utilizzo di viti micrometriche al fine di collimare il più possibile i due fasci riflessi per massimizzare la visibilità percepita delle frange di interferenza e centrare il fascio allargato dalla lente sul fotodiodo. Sull'oscilloscopio compare l'intensità del fascio uscente dall'interferometro, fascio che segue un andamento sinusoidale\footnote{L'andamento dell'intensità è coerente con quello di contrazione e dilatazione del piezoelettrico, appunto sinusoidale.}, si misura quindi l'intensità massima $I_\mathrm{max}$ e minima $I_\mathrm{min}$ all'interno di una singola rampa (indifferentemente di salita o di discesa) del segnale che pilota il piezoelettrico. Questa sequenza di operazioni viene ripetuta per tre volte, disallineando manualmente i fasci prima di riallinearli, quindi lo specchio mobile è spostato ad una distanza $d(N) = d^{(0)}_\mathrm{mobile} + Nd$, dove $N$ è il numero di fori liberi contati tra la base del beamsplitter e quella dello specchio mobile, mentre $d$ è la distanza intraforo riportata in precedenza.
+L'insieme di misure prese è riportato in Tabella \ref{tab:intensita}.
+
+In seguito alle misure, ne viene effettuata un'ultima riavvicinando lo specchio mobile a distanza $d_\mathrm{mobile} = \SI{5.6 \pm 0.1}{cm}$ dal beamsplitter.
+
+Tutte le misure prese sono riportate in Figura \ref{fig:visibilita_tutte} in funzione della differenza di cammino ottico definita come $\tau \equiv \left\vert c^{-1}\left(d^{(0)}_\mathrm{fisso} - d(N)\right) \right\vert$.
+L'incertezza associata alla misura è quella fornita dal manuale\footnote{\url{http://pdf1.alldatasheet.com/datasheet-pdf/view/554089/ETC2/TDS2012C.html}} dell'oscilloscopio, ossia il $3\%$.
+
+\subsection{Analisi}
+
+\section{Conclusioni}
 
 
 \end{multicols}
