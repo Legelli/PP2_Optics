@@ -207,16 +207,26 @@ V = \frac{sqrt{I_1 I_2}}{<I_1 + I_2>}|\gamma|
 \end{equation}
 
 Quando i fasci provengono dalla stessa sorgente $I_1=I_2$ e quindi $V = |\gamma|$. Facciamo un fit dei dati riportati nella figura \ref{fig:visibility} attraverso la forma funzionale:
+
 $$\gamma(\tau) = e^{A\frac{|\tau|}{2}}\cos{B\frac{|\tau|}{2}}$$
 
 con A e B parametri di fit. Il metodo usato è quelllo dei minimi quadrati. Troviamo
 
-$$A = 0.027 \pm 0.002$$
-$$B = 0.093 \pm 0.002$$
+$$A = (0.081 \pm 0.006) \cdot \SI{ns^-1}$$
+$$B = (0.279 \pm 0.006) \cdot \SI{ns^-1}$$
 
-Con un corrispondente R-squared pari al 95\% . Si ricorda che R-squared è una misura percentuale della bontà del fit che raggiunge il 100\% quando la funzione data è in perfetto accordo con i dati sperimentali.
+Con un corrispondente R-squared pari al 95\% . Si ricorda che R-squared è una misura percentuale della bontà del fit che raggiunge il 100\% quando la funzione data è in perfetto accordo con i dati sperimentali. La curva teorica sovrapposta ai dati sperimentali è riportata in figura \ref{fig:fit}. Dalla conoscenza di A ricaviamo il tempo di coerenza \tau_c, definito come il valore per il quale |\gamma| si riduce di un fattore e, escludendo l'effetto del termine oscillante. Ricaviamo inoltre la lunghezza di coerenza $l_c \def \tau_c c$. Troviamo:
 
+$$\tau_c = \frac{2}[A} = (2.5 \pm 0.2) \SI{ns}$$
+$$l_c = (74 \pm 6) \SI{cm}$$
 
+\begin{Figure}
+	\begin{center}
+	\includegraphics[width=\linewidth]{FIT.pdf}
+	\captionof{figure}{Medie della visibilità per differenti valori dello sfasamento temporale tra i due fasci. Al gradfico è sovrapposta la curva di fit citata nella sezione 2.}
+	\label{fig:fit}
+	\end{center}
+\end{Figure}
 
 
 
