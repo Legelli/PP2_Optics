@@ -126,25 +126,85 @@ Si studia la visibilità delle frange di interferenza di un laser HeNe\footnote{
 
 Si utilizza un laser He-Ne di lunghezza d'onda $\lambda = \SI{632.8}{nm}$, montato su tavolo ottico. 
 
-In serie al laser è posta un'iride, con lo scopo di evitare fasci entranti nel laser e perturbarne il comportamento. Uno specchio riflette la luce uscente dell'iride in un beam splitter, i due fasci ortogonali uscenti vengono fatti riflettere su due specchi e dunque ricombinati all'interno del beam splitter, una lente divergente allarga uno dei due fasci ricombinati prima di essere misurato da un fotodiodo.
+In serie al laser è posta un'iride, allo scopo di evitare l'ingresso nel laser dei fasci di ritorno, che ne perturberebbero il comportamento. Uno specchio riflette la luce uscente dell'iride nell'interferometro di Michelson, costituito da un beam splitter, e due specchi; il fascio ricombinato viene poi allargato da una lente divergente prima di essere misurato dal fotodiodo.
 
-Uno dei due specchi costituenti l'interferometro viene installato su una base fissa e appoggiato su un cristallo piezoelettrico, quest'ultimo è fatto espandere e contrarre attraverso un'onda triangolare di frequenza $f_\mathrm{rampa} = \SI{1.016}{\hertz}$ e ampiezza $A_\mathrm{rampa} = \SI{20.8}{\volt}$; l'altro viene fatto traslare su un piano forato con distanza trai fori pari a $d = \SI{2.5 \pm 0.1}{cm}$. 
+Uno dei due specchi costituenti l'interferometro viene installato su una base fissa e appoggiato su un cristallo piezoelettrico, quest'ultimo è fatto espandere e contrarre attraverso un'onda triangolare di frequenza $f_\mathrm{rampa} = \SI{2.016}{\hertz}$ e ampiezza $A_\mathrm{rampa} = \SI{20.8}{\volt}$; l'altro viene fatto traslare su un piano forato con distanza tra i fori pari a $d = \SI{2.50 \pm 0.01}{cm}$. 
 
 La configurazione utilizzata è illustrata in Figura~\ref{fig:diagram}.
 
-Il segnale in uscita dal fotodiodo è misurato con un oscilloscopio, quest'ultimo viene sincronizzato sulla frequenza del segnale uscente dal generatore.
+\begin{Figure}
+	\begin{center}
+	\includegraphics[width=\linewidth]{diagram.png}
+	\captionof{figure}{Configurazione utilizzata.}
+	\label{fig:diagram}
+	\end{center}
+\end{Figure}
+
+Il segnale in uscita dal fotodiodo è misurato con l'oscilloscopio \texttt{Tektronik TDS2012C}, il cui trigger viene sincronizzato sulla frequenza del segnale uscente dal generatore. Le misure di intensità luminosa vengono riportate come differenza di potenziale misurata ai capi del fotodiodo, pertanto è da intendere la presenza di un fattore di proporzionalità non noto.
 
 \section{Visibilità delle frange}
 \subsection{Presa dati}
-Si posiziona lo specchio mobile a distanza $d^{(0)}_\mathrm{mobile} = \SI{7.3 \pm 0.1}{cm}$, e quello fisso a distanza $d^{(0)}_\mathrm{fisso} = \SI{6.4 \pm 0.1}{cm}$, si muovono gli specchi con l'utilizzo di viti micrometriche al fine di collimare il più possibile i due fasci riflessi per massimizzare la visibilità percepita delle frange di interferenza e centrare il fascio allargato dalla lente sul fotodiodo. Sull'oscilloscopio compare l'intensità del fascio uscente dall'interferometro, fascio che segue un andamento sinusoidale\footnote{L'andamento dell'intensità è coerente con quello di contrazione e dilatazione del piezoelettrico, appunto sinusoidale.}, si misura quindi l'intensità massima $I_\mathrm{max}$ e minima $I_\mathrm{min}$ all'interno di una singola rampa (indifferentemente di salita o di discesa) del segnale che pilota il piezoelettrico. Questa sequenza di operazioni viene ripetuta per tre volte, disallineando manualmente i fasci prima di riallinearli, quindi lo specchio mobile è spostato ad una distanza $d(N) = d^{(0)}_\mathrm{mobile} + Nd$, dove $N$ è il numero di fori liberi contati tra la base del beamsplitter e quella dello specchio mobile, mentre $d$ è la distanza intraforo riportata in precedenza.
-L'insieme di misure prese è riportato in Tabella \ref{tab:intensita}.
+Si posiziona lo specchio mobile a distanza $d^{(0)}_\mathrm{mobile} = \SI{7.3 \pm 0.1}{cm}$, e quello fisso a distanza $d^{(0)}_\mathrm{fisso} = \SI{6.4 \pm 0.1}{cm}$, entrambe misurate rispetto all'interfaccia più prossima del beam splitter; si muovono gli specchi con l'utilizzo di viti micrometriche per collimare i due fasci riflessi al fine di massimizzare la visibilità percepita delle frange di interferenza e centrare il fascio allargato dalla lente sul fotodiodo. Sull'oscilloscopio si osserva l'intensità del fascio uscente dall'interferometro; essa mostra un andamento sinusoidale, caratteristico delle frange di interferenza; in particolare, la sinusoide è interrotta ad ogni cambio di pendenza dell'onda triangolare, poiché il cristallo piezoelettrico reagisce con una certa inerzia al segnale di input. Si misura quindi l'intensità massima $I_\mathrm{max}$ e minima $I_\mathrm{min}$ all'interno di una singola rampa (indifferentemente di salita o di discesa) dell'onda triangolare, utilizzando i cursori dell'oscilloscopio. 
 
-In seguito alle misure, ne viene effettuata un'ultima riavvicinando lo specchio mobile a distanza $d_\mathrm{mobile} = \SI{5.6 \pm 0.1}{cm}$ dal beamsplitter.
+Questa sequenza di operazioni viene ripetuta per tre volte, correggendo prima di ogni acquisizione sperimentale l'allineamento dei raggi; inoltre, prima di ogni ripetizione si misura l'intensità del fondo ambientale, che viene sottratta al dato acquisito, e la cui incertezza viene sommata in quadratura a quella strumentale. Quindi lo specchio mobile è spostato ad una distanza $d(N) = d^{(0)}_\mathrm{mobile} + Nd$, dove $N$ è il numero di fori liberi contati tra la base del beamsplitter e quella dello specchio mobile, mentre $d$ è la distanza interforo riportata in precedenza.
+L'insieme di misure prese è riportato in Tabella \ref{tab:intensita}, in Appendice.
 
-Tutte le misure prese sono riportate in Figura \ref{fig:visibilita_tutte} in funzione della differenza di cammino ottico definita come $\tau \equiv \left\vert c^{-1}\left(d^{(0)}_\mathrm{fisso} - d(N)\right) \right\vert$.
-L'incertezza associata alla misura è quella fornita dal manuale\footnote{\url{http://pdf1.alldatasheet.com/datasheet-pdf/view/554089/ETC2/TDS2012C.html}} dell'oscilloscopio, ossia il $3\%$.
+In seguito alle misure, ne viene effettuata un'ultima riavvicinando lo specchio mobile a distanza $d_\mathrm{mobile} = \SI{5.6 \pm 0.1}{cm}$ dal beamsplitter; in questo modo si acquisisce un ulteriore punto sperimentale per una differenza di cammino ottico minore.
+
+L'incertezza associata alla misura della differenza di potenziale mediante i cursori è quella fornita dal manuale\footnote{\url{http://pdf1.alldatasheet.com/datasheet-pdf/view/554089/ETC2/TDS2012C.html}} dell'oscilloscopio, ossia il $3\%$.
 
 \subsection{Analisi}
+Si riportano in Figura~\ref{fig:averageIntensities} le medie con associate le incertezze (date dalla somma in quadratura di incertezza strumentale e dispersione statistica) dei tre valori di intensità massima e minima misurati per ogni fissata distanza tra specchi e beamsplitter\footnote{L'intensità del fondo è già sottratta, e l'incertezza dovuta a tale misura è sommata in quadratura e quindi inclusa in quella strumentale citata precedentemente.}, in funzione della differenza di cammino ottico $x = 2\cdot \left(d^{(0)}_\mathrm{fisso} - d(N)\right)$.
+
+\begin{Figure}
+	\begin{center}
+	\includegraphics[width=\linewidth]{<Imax-min>_vs_tau.pdf}
+	\captionof{figure}{Medie delle intensità massime e minime misurate a $x$ fissata.}
+	\label{fig:averageIntensities}
+	\end{center}
+\end{Figure}
+
+Si osserva come per alcuni valori dell'intensità massima la barra di errore sia molto ampia: si ritiene che questo sia dovuto ad un non corretto allineamento del fascio con l'area sensibile del fotodiodo, condizione che viene modificata ad ogni successivo aggiustamento della configurazione degli specchi.
+
+Si riportano quindi in Figura~\ref{fig:averageVisibilities} le visibilità calcolate per ogni coppia di valori di intensità massima e minima misurati a differenza di cammino ottico fissata. Si rammenta che la visibilità è definita da
+\begin{equation}\label{eq:visibility}
+V = \frac{I_\text{max} - I_\text{min}}{I_\text{max} + I_\text{min}}.
+\end{equation}
+
+\begin{Figure}
+	\begin{center}
+	\includegraphics[width=\linewidth]{Vall_vs_tau.pdf}
+	\captionof{figure}{Visibilità calcolate a $x$ fissata.}
+	\label{fig:averageVisibilities}
+	\end{center}
+\end{Figure}
+
+Si osserva come la scelta di acquisire tre punti sperimentali per ogni fissata distanza tra specchi e beamsplitter abbia permesso di ottenere un andamento meno disperso della visibilità: lo si confronti infatti con il grafico precedente.
+
+In Figura~\ref{fig:visibility} è riportato il grafico della visibilità in funzione della differenza di cammino ottico, definita come 
+\[
+\tau = \frac{x}{c} =  \frac{d^{(0)}_\mathrm{fisso} - d(N)}{c},
+\] 
+dove $c$ indica la velocità della luce, $c~=~\SI{2.9979e10}{cm/s}$.
+
+\begin{Figure}
+	\begin{center}
+	\includegraphics[width=\linewidth]{V_vs_tau.pdf}
+	\captionof{figure}{Medie delle visibilità calcolate a $x$ fissata.}
+	\label{fig:visibility}
+	\end{center}
+\end{Figure}
+
+Ogni valore in funzione di $\tau$ è ottenuto come media pesata delle visibilità calcolate precedentemente, a partire dalle tre acquisizioni di intensità. L'incertezza associata è data dalla somma in quadratura dell'errore caratteristico della media pesata e della dispersione statistica dei tre punti sperimentali:
+\[
+\sigma_V = \left[ \left( \sum_{i=1}^3 \frac{1}{\sigma_\text{$V_i$}^2}\right)^{-1} + \delta(V_i)^2 \right]^{1/2}, 
+\]
+dove $\sigma_\text{$V_i$}$ indica l'incertezza associata a ciascun valore della visibilità dato dalla~(\ref{eq:visibility}), mentre $\delta(V_i)$ indica la dispersione statistica dei tre valori.
+
+
+
+
+
 
 \section{Conclusioni}
 
