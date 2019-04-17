@@ -228,7 +228,12 @@ $$\tau_c = \frac{2}{A} = \SI{2.5 \pm 0.2}{\ns}$$
 
 $$l_c = \SI{74 \pm 6}{cm}$$
 
-Confrontando i risultati ottenuti con la lunghezza di coerenza prevista dal costruttore\footnote{\url{https://www.thorlabs.com/drawings/c29db02485c2452c-B4410FB1-B1CD-8FD7-CC6F6ADA698822BC/HNL020LB-Manual.pdf}} ($l_c \simeq \SI{30}{cm}$), si osserva che i valori ottenuti sono incompatibili. Si ritiene che questo possa essere dovuto ad una diversa definizione della lunghezza di coerenza, o alla presenza di sistematiche sperimentali non note (si veda la sezione successiva).
+Confrontando i risultati ottenuti con la lunghezza di coerenza prevista dal costruttore\footnote{\url{https://www.thorlabs.com/drawings/c29db02485c2452c-B4410FB1-B1CD-8FD7-CC6F6ADA698822BC/HNL020LB-Manual.pdf}} ($l_c \simeq \SI{30}{cm}$), si osserva che i valori ottenuti sono incompatibili. Si ritiene che questo possa essere dovuto ad una diversa definizione della lunghezza di coerenza o alla presenza di sistematiche sperimentali non note (si veda la sezione successiva).\\
+Il tempo di coerenza può essere definito anche come il tempo in corrispondenza del quale la funzione di correlazione si annulla per la prima volta \footnote{R.Fowles, Introduction to modern optics, ch 3.5-3.6}. Adottando questa definizione si trova
+$$\tau_c = \frac{\pi}{B} = \SI{1.13 \pm 0.02}{ns}$$
+$$\l_c = \SI{33.9 \pm 0.6}{cm}$$
+Compatibile con i valori forniti dal manuale del costruttore.
+
 
 \begin{Figure}
 	\begin{center}
@@ -243,7 +248,8 @@ Si ritiene che la distribuzione sperimentale dei dati, nonostante l'indicazione 
 
 Dal punto di vista dell'esecuzione, si ritiene che la non perfetta collimazione del fascio laser con l'area sensibile del fotodiodo, e altresì dei due fasci interferenti tra loro, possa aver contribuito ad alterare significativamente la distribuzione del valore atteso della visibilità. Si ipotizza che la presenza di fenomeni diffrattivi possa aver indotto a posizionare i fasci riuniti sul fotodiodo in modo non simmetrico e variabile ad ogni ricollocazione degli specchi, così da introdurre un fattore esterno a influenzare il valore della visibilità: questo è più evidente per i punti prossimi allo zero, per i quali l'incertezza minore suggerisce, in effetti, una sottostima della stessa più che una bontà del dato ottenuto. 
 
-Infine, si rileva come la incompatibilità del valore ottenuto con quello previsto possa essere giustificata dalla imprecisione circa la posizione del primo zero della funzione di correlazione, che influisce in modo consistente sui parametri di fit.
+Il costruttore del laser non fornisce indicazioni sulla definizione adottata nel calcolo del tempo di coerenza. Utilizzando due definizioni distinte si perviene rispettivamente a un valore discordante e a un valore in accordo con quello atteso. L'adozione della prima definizione implica un errore di cui nè l'andamento qualitativo dei dati nè i risultati del fit riescono a dare conto. Si propende pertanto per l'adozione della seconda definizione.
+
 
 
 
