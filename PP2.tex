@@ -199,43 +199,51 @@ Ogni valore in funzione di $V$ è ottenuto come media pesata delle visibilità c
 \[
 \sigma_V = \left[ \left( \sum_{i=1}^3 \frac{1}{\sigma_\text{$V_i$}^2}\right)^{-1} + \delta(V_i)^2 \right]^{1/2}, 
 \]
-dove $\sigma_\text{$V_i$}$ indica l'incertezza associata a ciascun valore della visibilità dato dalla~(\ref{eq:visibility}), mentre $\delta(V_i)$ indica la dispersione statistica dei tre valori.\\
-L'equazione \ref{eq:visibility} può essere riscritta in termini del modulo della funzione di coerenza e delle intensità dei due fasci ottenuti attraverso il beam-splitter:
+dove $\sigma_\text{$V_i$}$ indica l'incertezza associata a ciascun valore della visibilità dato dalla~(\ref{eq:visibility}), mentre $\delta(V_i)$ indica la dispersione statistica dei tre valori.
+
+L'equazione (\ref{eq:visibility}) può essere riscritta in termini del modulo della funzione di correlazione $\gamma(\tau)$ e delle intensità dei due fasci ottenuti attraverso il beam-splitter:
 
 \begin{equation}\label{eq:visibility2}
-V = \frac{\sqrt{I_1 I_2}}{<I_1 + I_2>}|\gamma|
+V = \frac{2\sqrt{I_1 I_2}}{\langle I_1 + I_2 \rangle}\vert \gamma(\tau) \vert
 \end{equation}
 
-Quando i fasci provengono dalla stessa sorgente $I_1=I_2$ e quindi $V = |\gamma|$. Facciamo un fit dei dati riportati nella figura \ref{fig:visibility} attraverso la funzione di coerenza prevista per un laser He-Ne a due modi normali di oscillazione:
+Quando i fasci provengono dalla stessa sorgente $I_1=I_2$ e quindi $V = \vert\gamma(\tau)\vert$. Si esegue un fit dei dati riportati nella Figura \ref{fig:visibility} attraverso la funzione di correlazione prevista per un laser He-Ne a due modi normali di oscillazione ($N=2$):
+\[
+\gamma(\tau) = e^{-A\frac{\vert\tau\vert}{2}}\cos\left({B\frac{\vert\tau\vert}{2}}\right)
+\]
 
-$$\gamma(\tau) = e^{-A\frac{|\tau|}{2}}\cos{B\frac{|\tau|}{2}}$$
+con A e B parametri di fit. Si sottolinea che il valore di $N=2$ è stato ottenuto confrontando i dati sperimentali con le curve teoriche calcolate per $N=2$ e $N=3$, in quanto non è stato possibile eseguire un fit con anche $N$ tra i parametri liberi, a causa della divergenza del metodo dei minimi quadrati, quale è stato adoperato. Si trova
+\[
+\begin{aligned}
+A &= \SI{0.81 \pm 0.06}{\nano\second}^{-1} \\
+B &= \SI{2.79 \pm 0.06}{\nano\second}^{-1} \\
+\end{aligned}
+\]
 
-con A e B parametri di fit. Il metodo usato è quelllo dei minimi quadrati. Troviamo
+Con un corrispondente R-squared pari al $95\%$. Si ricorda che R-squared è una misura percentuale della bontà del fit che raggiunge il $100\%$ quando la funzione data è in perfetto accordo con i dati sperimentali. La curva teorica sovrapposta ai dati sperimentali è riportata in figura \ref{fig:fit}. La discrepanza teoria-esperimento è più evidente in corrispondenza del secondo picco, dove l'allineamento dei due fasci è un'operazione più delicata a causa della maggiore distanza del secondo specchio.
 
-$$A = \SI{0.081 \pm 0.006}{\nano\second}^{-1}$$
-$$B = \SI{0.279 \pm 0.006}{\nano\second}^{-1}$$
-
-Con un corrispondente R-squared pari al $95\%$ . Si ricorda che R-squared è una misura percentuale della bontà del fit che raggiunge il 100\% quando la funzione data è in perfetto accordo con i dati sperimentali. La curva teorica sovrapposta ai dati sperimentali è riportata in figura \ref{fig:fit}. La discrepanza teoria-esperimento è più evidente in corrispondenza del secondo picco, dove l'allineamento dei due fasci è un'operazione più delicata a causa della maggiore distanza del secondo specchio.\\ Dalla conoscenza di A si ricava il tempo di coerenza $\tau_c$, definito come il valore per il quale $|\gamma|$ si riduce di un fattore e, escludendo l'effetto del termine oscillante. Si calcola inoltre la lunghezza di coerenza $l_c \equiv \tau_c c$. Troviamo:
+Dalla conoscenza di A si ricava il tempo di coerenza $\tau_c$, definito come il valore per il quale $\vert\gamma\vert$ si riduce di un fattore $1/e$, escludendo l'effetto del termine oscillante. Si calcola inoltre la lunghezza di coerenza $l_c \equiv \tau_c c$. Troviamo:
 
 $$\tau_c = \frac{2}{A} = \SI{2.5 \pm 0.2}{\ns}$$
 
 $$l_c = \SI{74 \pm 6}{cm}$$
 
-Compatibili con i valori forniti dal costruttore. 
+Confrontando i risultati ottenuti con la lunghezza di coerenza prevista dal costruttore\footnote{\url{https://www.thorlabs.com/drawings/c29db02485c2452c-B4410FB1-B1CD-8FD7-CC6F6ADA698822BC/HNL020LB-Manual.pdf}} ($l_c \simeq \SI{30}{cm}$), si osserva che i valori ottenuti sono incompatibili. Si ritiene che questo possa essere dovuto ad una diversa definizione della lunghezza di coerenza, o alla presenza di sistematiche sperimentali non note (si veda la sezione successiva).
 
 \begin{Figure}
 	\begin{center}
 	\includegraphics[width=\linewidth]{FIT.pdf}
-	\captionof{figure}{Medie della visibilità per differenti valori dello sfasamento temporale tra i due fasci. Al grafico è sovrapposta la curva di fit citata nella sezione 3.}
+	\captionof{figure}{Medie della visibilità per differenti valori dello sfasamento temporale tra i due fasci. Al grafico è sovrapposta la curva di fit.}
 	\label{fig:fit}
 	\end{center}
 \end{Figure}
 
-
-
-
 \section{Conclusioni}
+Si ritiene che la distribuzione sperimentale dei dati, nonostante l'indicazione data dal valore di R-squared, non possa essere ragionevolmente ottenuta dal modello teorico; si osserva inoltre che le incertezze in diversi casi sono eccessivamente sottostimate, indice della presenza di sistematiche sperimentali che hanno influito sulla bontà della misura. 
 
+Dal punto di vista dell'esecuzione, si ritiene che la non perfetta collimazione del fascio laser con l'area sensibile del fotodiodo, e altresì dei due fasci interferenti tra loro, possa aver contribuito ad alterare significativamente la distribuzione del valore atteso della visibilità. Si ipotizza che la presenza di fenomeni diffrattivi possa aver indotto a posizionare i fasci riuniti sul fotodiodo in modo non simmetrico e variabile ad ogni ricollocazione degli specchi, così da introdurre un fattore esterno a influenzare il valore della visibilità: questo è più evidente per i punti prossimi allo zero, per i quali l'incertezza minore suggerisce, in effetti, una sottostima della stessa più che una bontà del dato ottenuto. 
+
+Infine, si rileva come la incompatibilità del valore ottenuto con quello previsto possa essere giustificata dalla imprecisione circa la posizione del primo zero della funzione di correlazione, che influisce in modo consistente sui parametri di fit.
 
 
 
