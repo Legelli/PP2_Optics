@@ -143,10 +143,10 @@ La configurazione utilizzata è illustrata in Figura~\ref{fig:diagram}.
 Il segnale in uscita dal fotodiodo è misurato con l'oscilloscopio \texttt{Tektronik TDS2012C}, il cui trigger viene sincronizzato sulla frequenza del segnale uscente dal generatore. Le misure di intensità luminosa vengono riportate come differenza di potenziale misurata ai capi del fotodiodo, pertanto è da intendere la presenza di un fattore di proporzionalità non noto.
 
 \section{Visibilità delle frange}
-\subsection{Presa dati}
+\subsection{Presa dati}\label{sec:presa_dati}
 Si posiziona lo specchio mobile a distanza $d^{(0)}_\mathrm{mobile} = \SI{7.3 \pm 0.1}{cm}$, e quello fisso a distanza $d^{(0)}_\mathrm{fisso} = \SI{6.4 \pm 0.1}{cm}$, entrambe misurate rispetto all'interfaccia più prossima del beam splitter; si muovono gli specchi con l'utilizzo di viti micrometriche per collimare i due fasci riflessi al fine di massimizzare la visibilità percepita delle frange di interferenza e centrare il fascio allargato dalla lente sul fotodiodo. Sull'oscilloscopio si osserva l'intensità del fascio uscente dall'interferometro; essa mostra un andamento sinusoidale, caratteristico delle frange di interferenza; in particolare, la sinusoide è interrotta ad ogni cambio di pendenza dell'onda triangolare, poiché il cristallo piezoelettrico reagisce con una certa inerzia al segnale di input. Si misura quindi l'intensità massima $I_\mathrm{max}$ e minima $I_\mathrm{min}$ all'interno di una singola rampa (indifferentemente di salita o di discesa) dell'onda triangolare, utilizzando i cursori dell'oscilloscopio. 
 
-Questa sequenza di operazioni viene ripetuta per tre volte, correggendo prima di ogni acquisizione sperimentale l'allineamento dei raggi; inoltre, prima di ogni ripetizione si misura l'intensità del fondo ambientale, che viene sottratta al dato acquisito, e la cui incertezza viene sommata in quadratura a quella strumentale. Quindi lo specchio mobile è spostato ad una distanza $d(N) = d^{(0)}_\mathrm{mobile} + Nd$, dove $N$ è il numero di fori liberi contati tra la base del beamsplitter e quella dello specchio mobile, mentre $d$ è la distanza interforo riportata in precedenza.
+Questa sequenza di operazioni viene ripetuta per tre volte, correggendo prima di ogni acquisizione sperimentale l'allineamento dei raggi; inoltre, prima di ogni ripetizione si misura l'intensità del fondo ambientale, che viene sottratta al dato acquisito, e la cui incertezza (presa come valore \emph{rms}) viene sommata in quadratura a quella strumentale\footnote{Si osservi che, essendo una misura di un valore prossimo allo zero, l'incertezza fornita come \emph{rms} sia superiore al dato stesso: siccome non viene utilizzato l'errore relativo, tuttavia, questo non causerà problemi nella propagazione successiva.}. Quindi lo specchio mobile è spostato ad una distanza $d(N) = d^{(0)}_\mathrm{mobile} + Nd$, dove $N$ è il numero di fori liberi contati tra la base del beamsplitter e quella dello specchio mobile, mentre $d$ è la distanza interforo riportata in precedenza.
 L'insieme di misure prese è riportato in Tabella \ref{tab:intensita}, in Appendice.
 
 In seguito alle misure, ne viene effettuata un'ultima riavvicinando lo specchio mobile a distanza $d_\mathrm{mobile} = \SI{5.6 \pm 0.1}{cm}$ dal beamsplitter; in questo modo si acquisisce un ulteriore punto sperimentale per una differenza di cammino ottico minore.
@@ -220,15 +220,15 @@ B &= \SI{2.79 \pm 0.06}{\nano\second}^{-1} \\
 \end{aligned}
 \]
 
-Con un corrispondente R-squared pari al $95\%$. Si ricorda che R-squared è una misura percentuale della bontà del fit che raggiunge il $100\%$ quando la funzione data è in perfetto accordo con i dati sperimentali. La curva teorica sovrapposta ai dati sperimentali è riportata in figura \ref{fig:fit}. La discrepanza teoria-esperimento è più evidente in corrispondenza del secondo picco, dove l'allineamento dei due fasci è un'operazione più delicata a causa della maggiore distanza del secondo specchio.
+Con un corrispondente R-squared pari al $95\%$. Si ricorda che R-squared è una misura percentuale della bontà del fit che raggiunge il $100\%$ quando la funzione data è in perfetto accordo con i dati sperimentali. La curva teorica sovrapposta ai dati sperimentali è riportata in Figura~\ref{fig:fit}. La discrepanza tra il modello teorico e i dati sperimentali è più evidente in corrispondenza del secondo picco, dove l'allineamento dei due fasci è un'operazione più delicata a causa della maggiore distanza del secondo specchio.
 
-Dalla conoscenza di A si ricava il tempo di coerenza $\tau_c$, definito come il valore per il quale $\vert\gamma\vert$ si riduce di un fattore $1/e$, escludendo l'effetto del termine oscillante. Si calcola inoltre la lunghezza di coerenza $l_c \equiv \tau_c c$. Troviamo:
+Dalla conoscenza di $A$ si ricava il tempo di coerenza $\tau_c$, definito come il valore per il quale $\vert\gamma\vert$ si riduce di un fattore $1/e$, escludendo l'effetto del termine oscillante. Si calcola inoltre la lunghezza di coerenza $l_c \equiv \tau_c c$. Troviamo:
 
 $$\tau_c = \frac{2}{A} = \SI{2.5 \pm 0.2}{\ns}$$
 
 $$l_c = \SI{74 \pm 6}{cm}$$
 
-Confrontando i risultati ottenuti con la lunghezza di coerenza prevista dal costruttore\footnote{\url{https://www.thorlabs.com/drawings/c29db02485c2452c-B4410FB1-B1CD-8FD7-CC6F6ADA698822BC/HNL020LB-Manual.pdf}} ($l_c \simeq \SI{30}{cm}$), si osserva che i valori ottenuti sono incompatibili. Si ritiene che questo possa essere dovuto ad una diversa definizione della lunghezza di coerenza o alla presenza di sistematiche sperimentali non note (si veda la sezione successiva).\\
+Confrontando i risultati ottenuti con la lunghezza di coerenza prevista dal costruttore\footnote{\url{https://www.dropbox.com/s/dbz3hn1xcsj8th2/HNL020LB-Manual.pdf?dl=0}} ($l_c \simeq \SI{30}{cm}$), si osserva che i valori ottenuti sono incompatibili. Si ritiene che questo possa essere dovuto ad una diversa definizione della lunghezza di coerenza o alla presenza di sistematiche sperimentali non note (si veda la sezione successiva).\\
 Il tempo di coerenza può essere definito anche come il tempo in corrispondenza del quale la funzione di correlazione si annulla per la prima volta \footnote{R.Fowles, Introduction to modern optics, ch 3.5-3.6}. Adottando questa definizione si trova
 $$\tau_c = \frac{\pi}{B} = \SI{1.13 \pm 0.02}{ns}$$
 $$l_c = \SI{33.9 \pm 0.6}{cm}$$
@@ -246,7 +246,7 @@ Compatibile con i valori forniti dal manuale del costruttore.
 \section{Conclusioni}
 Si ritiene che la distribuzione sperimentale dei dati, nonostante l'indicazione data dal valore di R-squared, non possa essere ragionevolmente ottenuta dal modello teorico; si osserva inoltre che le incertezze in diversi casi sono eccessivamente sottostimate, indice della presenza di sistematiche sperimentali che hanno influito sulla bontà della misura. 
 
-Dal punto di vista dell'esecuzione, si ritiene che la non perfetta collimazione del fascio laser con l'area sensibile del fotodiodo, e altresì dei due fasci interferenti tra loro, possa aver contribuito ad alterare significativamente la distribuzione del valore atteso della visibilità. Si ipotizza che la presenza di fenomeni diffrattivi possa aver indotto a posizionare i fasci riuniti sul fotodiodo in modo non simmetrico e variabile ad ogni ricollocazione degli specchi, così da introdurre un fattore esterno a influenzare il valore della visibilità: questo è più evidente per i punti prossimi allo zero, per i quali l'incertezza minore suggerisce, in effetti, una sottostima della stessa più che una bontà del dato ottenuto. 
+Dal punto di vista dell'esecuzione, si ritiene che la non perfetta collimazione del fascio laser con l'area sensibile del fotodiodo, e altresì dei due fasci interferenti tra loro, possa aver contribuito ad alterare significativamente la distribuzione del valore atteso della visibilità. Si ipotizza che la presenza di fenomeni diffrattivi possa aver indotto a posizionare i fasci riuniti sul fotodiodo in modo non simmetrico e variabile ad ogni ricollocazione degli specchi, così da introdurre un fattore esterno a influenzare il valore della visibilità: questo è più evidente per i punti prossimi allo zero, per i quali l'incertezza minore suggerisce, in effetti, una sottostima della stessa più che la precisione del dato ottenuto. 
 
 Il costruttore del laser non fornisce indicazioni sulla definizione adottata nel calcolo del tempo di coerenza. Utilizzando due definizioni distinte si perviene rispettivamente a un valore discordante e a un valore in accordo con quello atteso. L'adozione della prima definizione implica un errore di cui nè l'andamento qualitativo dei dati nè i risultati del fit riescono a dare conto. Si propende pertanto per l'adozione della seconda definizione.
 
@@ -260,35 +260,36 @@ Il costruttore del laser non fornisce indicazioni sulla definizione adottata nel
 \newpage
 \section{Appendice}
 \begin{center}
-\captionof{table}{Misure per lo studio della funzione di mutua coerenza.}
-\label{tab:Ac_differenziale}
-\begin{tabular}{c|c|c|c|c|c|c|c}
-$b$ [\SI{}{mV}] & rms [\SI{}{mV}] & $Imax_1$ [\SI{}{V}] & $Imax_2$ [\SI{}{V}] & $Imax_3$ [\SI{}{V}] &  $Imin_1$ [\SI{}{V}] & $Imin_2$ [\SI{}{V}] & $Imin_3$ [\SI{}{V}]  \\
-  &   &  $\pm 3\%$ & $\pm 3\%$ & $\pm 3\%$ &  $\pm 3\%$ & $\pm 3\%$ & $\pm 3\%$ \\
+\captionof{table}{Misure per lo studio della funzione di correlazione.}
+\label{tab:intensita}
+\begin{tabular}{c|c|c|c|c|c|c|c|c}
+$N$ & $I_\text{fondo}$ [\SI{}{mV}] & rms [\SI{}{mV}] & $I_{\text{max}_1}$ [\SI{}{V}] & $I_{\text{max}_2}$ [\SI{}{V}] & $I_{\text{max}_3}$ [\SI{}{V}] &  $I_{\text{min}_1}$ [\SI{}{V}] & $I_{\text{min}_2}$ [\SI{}{V}] & $I_{\text{min}_3}$ [\SI{}{V}]  \\
+ &  &   &  $\pm 3\%$ & $\pm 3\%$ & $\pm 3\%$ &  $\pm 3\%$ & $\pm 3\%$ & $\pm 3\%$ \\
 \hline
- 0.87 & 1.01 &  0.896 & 1.250 & 1.470 &  0.056 & 0.064 & 0.056 \\
- 0.81 & 3.08 &  1.340 & 0.832 & 1.090 &  0.096 & 0.104 & 0.080 \\
- 0.61 & 1.56 &  0.640 & 0.976 & 1.110 &  0.184 & 0.176 & 0.200 \\
- 0.29 & 1.69 &  0.968 & 0.628 & 1.260 &  0.400 & 0.164 & 0.416 \\
- 0.92 & 1.24 &  0.944 & 0.930 & 0.940 &  0.544 & 0.562 & 0.524 \\
- 0.67 & 1.33 &  0.625 & 0.666 & 0.676 &  0.562 & 0.592 & 0.598 \\
- 1.14 & 1.36 &  0.780 & 0.592 & 0.790 &  0.682 & 0.574 & 0.697 \\
- 1.15 & 1.27 &  0.666 & 0.452 & 0.834 &  0.558 & 0.366 & 0.744 \\
- 1.01 & 1.36 &  0.962 & 0.942 & 0.918 &  0.622 & 0.628 & 0.646 \\
- 0.80 & 0.98 &  0.558 & 0.904 & 0.712 &  0.344 & 0.580 & 0.444 \\
- 0.65 & 1.41 &  1.030 & 0.996 & 0.864 &  0.612 & 0.564 & 0.444 \\
- 0.46 & 1.35 &  0.704 & 0.788 & 0.864 &  0.296 & 0.380 & 0.384 \\
- 1.46 & 1.55 &  1.100 & 1.070 & 1.140 &  0.424 & 0.416 & 0.432 \\
- 0.51 & 1.36 &  1.130 & 1.060 & 1.100 &  0.392 & 0.376 & 0.392 \\
- 1.03 & 1.74 &  1.080 & 1.080 & 0.816 &  0.416 & 0.408 & 0.272 \\
- 0.71 & 1.82 &  0.848 & 0.892 & 0.672 &  0.368 & 0.384 & 0.312 \\
- 0.67 & 1.87 &  0.682 & 0.680 & 0.666 &  0.368 & 0.394 & 0.398 \\
- 0.57 & 2.12 &  0.628 & 0.502 & 0.760 &  0.430 & 0.340 & 0.520 \\
- 0.81 & 0.99 &  0.694 & 0.678 & 0.688 &  0.584 & 0.552 & 0.544 \\
- 0.76 & 1.96 &  0.429 & 0.633 & 0.578 &  0.379 & 0.574 & 0.538 \\
- 0.87 & 1.01 &  1.400 &	   &	        &  0.064 & 	 & 	\\
+ 0 & 0.87 & 1.01 &  0.90 & 1.25 & 1.47 &  0.056 & 0.064 & 0.056 \\
+ 1 & 0.81 & 3.08 &  1.34 & 0.83 & 1.09 &  0.096 & 0.104 & 0.080 \\
+ 2 & 0.61 & 1.56 &  0.64 & 0.98 & 1.11 &  0.18 & 0.18 & 0.20 \\
+ 3 & 0.29 & 1.69 &  0.97 & 0.63 & 1.26 &  0.40 & 0.16 & 0.42 \\
+ 4 & 0.92 & 1.24 &  0.94 & 0.93 & 0.94 &  0.54 & 0.56 & 0.52 \\
+ 5 & 0.67 & 1.33 &  0.63 & 0.67 & 0.68 &  0.56 & 0.59 & 0.60 \\
+ 6 & 1.14 & 1.36 &  0.78 & 0.59 & 0.79 &  0.68 & 0.57 & 0.70 \\
+ 7 & 1.15 & 1.27 &  0.67 & 0.45 & 0.83 &  0.56 & 0.37 & 0.74 \\
+ 8 & 1.01 & 1.36 &  0.96 & 0.94 & 0.92 &  0.62 & 0.63 & 0.65 \\
+ 9 & 0.80 & 0.98 &  0.56 & 0.90 & 0.71 &  0.34 & 0.58 & 0.44 \\
+10 & 0.65 & 1.41 &  1.03 & 1.00 & 0.86 &  0.61 & 0.56 & 0.44 \\
+11 & 0.46 & 1.35 &  0.70 & 0.79 & 0.86 &  0.30 & 0.38 & 0.38 \\
+12 & 1.46 & 1.55 &  1.10 & 1.07 & 1.14 &  0.42 & 0.42 & 0.43 \\
+13 & 0.51 & 1.36 &  1.13 & 1.06 & 1.10 &  0.39 & 0.38 & 0.39 \\
+14 & 1.03 & 1.74 &  1.08 & 1.08 & 0.82 &  0.42 & 0.41 & 0.27 \\
+15 & 0.71 & 1.82 &  0.85 & 0.89 & 0.67 &  0.37 & 0.38 & 0.31 \\
+16 & 0.67 & 1.87 &  0.68 & 0.68 & 0.67 &  0.37 & 0.39 & 0.40 \\
+17 & 0.57 & 2.12 &  0.63 & 0.50 & 0.76 &  0.43 & 0.34 & 0.52 \\
+18 & 0.81 & 0.99 &  0.69 & 0.68 & 0.69 &  0.58 & 0.55 & 0.54 \\
+19 & 0.76 & 1.96 &  0.43 & 0.63 & 0.58 &  0.38 & 0.57 & 0.54 \\
+\footnotemark & 0.87 & 1.01 &  1.40 &	   &	        &  0.064 & 	 & 	\\
 \hline
 \end{tabular}
+\footnotetext{Come indicato nella Sezione~\ref{sec:presa_dati}, questa misura è effettuata con distanza tra lo specchio mobile e il beamsplitter di $d_\mathrm{mobile} = \SI{5.6 \pm 0.1}{cm}$.}
 \end{center}
 
 
